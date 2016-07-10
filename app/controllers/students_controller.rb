@@ -10,6 +10,14 @@ class StudentsController < ApplicationController
     end
   end
 
+  def index
+    students = Student.all
+  end
+
+  def show
+    student = Student.find(params[:id])
+  end
+
   def update
     if student.save
       redirect_to student_path(student), notice: I18n.t('shared.updated', resource: 'Student')
